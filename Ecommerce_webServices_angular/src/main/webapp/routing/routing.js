@@ -1,8 +1,9 @@
 monApp.config(function($routeProvider) {
 	$routeProvider
 	.when('/client/liste', {
-		templateUrl : "partials/getAll.html",
+		templateUrl : "partials/SPA.html",
 	 controller:"getAllCtrl"
+		
 	})
 	.otherwise({
 		redirectTo : '/client/liste'

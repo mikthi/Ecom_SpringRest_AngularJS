@@ -19,29 +19,41 @@
 	src="statique/js/provider/clientProvider.js"></script>
 <script type="text/javascript"
 	src="statique/js/controller/clientControllers.js"></script>
-	<script type="text/javascript" src="statique/js/controller/rootController.js"></script>
+<script type="text/javascript"
+	src="statique/js/controller/rootController.js"></script>
 <script type="text/javascript" src="routing/routing.js"></script>
 
 
 
 <title>Insert title here</title>
 </head>
+
+
 <body ng-app="monApp" ng-controller="rootController">
-	<div ng-switch
-		on="typeUtilisateur">
+
+	<div ng-switch on="typeUtilisateur.menu">
 		<div ng-switch-when="1">
 			<div ng-include="'partials/menuClient.html'"></div>
 		</div>
-		<div ng-switch-when="2|3" ng-switch-when-separator="|">
+		<div ng-switch-when="2">
 			<div ng-include="'partials/menuGestionnaire.html'"></div>
+		</div>
+		<div ng-switch-when="3">
+			<div ng-include="'partials/menuFacture.html'"></div>
 		</div>
 	</div>
 
 
 
 	<div class="container">
-		<div ng-view></div>
+		<div ng-view>
+		
+		
+		
+		
+		</div>
 	</div>
 
 </body>
+
 </html>

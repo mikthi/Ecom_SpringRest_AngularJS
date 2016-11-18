@@ -1,20 +1,5 @@
+
 <h1>Liste des produits</h1>
-
-
-	<div ng-switch on="typeUtilisateur">
-		<div ng-switch-when="1">
-			<div ng-include="'partials/menuClient.html'"></div>
-		</div>
-		<div ng-switch-when="2" ng-switch-when-separator="|">
-			<div ng-include="'partials/menuGestionnaire.html'"></div>
-		</div>
-		<div ng-switch-when="3" ng-switch-when-separator="|">
-			<div ng-include="'partials/menuFacture.html'"></div>
-		</div>
-
-	</div>
-
-
 
 
 <table class="table">
@@ -25,8 +10,13 @@
 	</tr>
 	<tr ng-repeat="produit in allProduits">
 		<!-- filtre par l'intermédiaire de "|"-->
-		<td>{{produit.id_client}}</td>
+		<td>{{produit.id_produit}}</td>
 		<td>{{produit.nom}}</td>
 		<td>{{produit.description}}</td>
 	</tr>
 </table>
+<form>
+
+	<button ng-controlleur="login" type="submit" ng-click="changeTypeUtilGest()">Menu gestionnaire</button>
+	<button ng-controlleur="login" type="submit" ng-click="changeTypeUtilClient()">Menu client</button>
+</form>
