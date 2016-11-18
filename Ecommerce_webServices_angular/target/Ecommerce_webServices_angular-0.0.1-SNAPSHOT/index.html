@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--  déclaration des librairies -->
+<!-- Jquery -->
+<script type="text/javascript" src="statique/bootstrap/jquery-3.1.1.js"></script>
+
+<!-- BootStrap -->
+<link href="statique/bootstrap/bootstrap.css" rel="stylesheet"
+	type="text/css" />
+<script type="text/javascript" src="statique/bootstrap/bootstrap.js"></script>
+
+<script type="text/javascript" src="statique/angular/angular.js"></script>
+<script type="text/javascript" src="statique/angular/angular-route.js"></script>
+
+<!-- Mes librairies -->
+<script type="text/javascript" src="statique/js/module/module.js"></script>
+<script type="text/javascript"
+	src="statique/js/provider/clientProvider.js"></script>
+<script type="text/javascript"
+	src="statique/js/controller/clientControllers.js"></script>
+	<script type="text/javascript" src="statique/js/controller/rootController.js"></script>
+<script type="text/javascript" src="routing/routing.js"></script>
+
+
+
+<title>Insert title here</title>
+</head>
+<body ng-app="monApp" ng-controller="rootController">
+	<div ng-switch
+		on="typeUtilisateur">
+		<div ng-switch-when="1">
+			<div ng-include="'partials/menuClient.html'"></div>
+		</div>
+		<div ng-switch-when="2|3" ng-switch-when-separator="|">
+			<div ng-include="'partials/menuGestionnaire.html'"></div>
+		</div>
+	</div>
+
+
+
+	<div class="container">
+		<div ng-view></div>
+	</div>
+
+</body>
+</html>
