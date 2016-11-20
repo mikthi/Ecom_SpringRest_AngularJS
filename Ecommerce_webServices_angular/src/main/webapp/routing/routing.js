@@ -5,6 +5,11 @@ monApp.config(function($routeProvider) {
 	 controller:"getAllCtrl"
 		
 	})
+	.when('/gestionnaire/accueil', {
+		templateUrl : "partials/corps/getAllCategories.html",
+	 controller:"getAllCategoriesCtrl"
+		
+	})
 	.when('/gestionnaire/listeCateg', {
 		templateUrl : "partials/SPA.html",
 	 controller:"getAllCategoriesCtrl"

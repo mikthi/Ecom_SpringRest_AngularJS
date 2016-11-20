@@ -15,27 +15,29 @@
 <!-- Mes librairies -->
 <script type="text/javascript" src="statique/js/module/module.js"></script>
 <script type="text/javascript"
-	src="statique/js/provider/clientProvider.js"></script>
-<script type="text/javascript"
-	src="statique/js/controller/clientControllers.js"></script>
+	src="statique/js/provider/gestionnaireProvider.js"></script>
 <script type="text/javascript"
 	src="statique/js/controller/gestionnaireControllers.js"></script>
-<script type="text/javascript"
-	src="statique/js/controller/rootController.js"></script>
-<script type="text/javascript" src="routing/routing.js"></script>
+<script type="text/javascript" src="routing/gestionnaireRouting.js"></script>
 
 
 <meta charset="UTF-8">
 <title>Accueil</title>
 </head>
 
-<body ng-app="monApp" ng-controller="rootController">
+<body ng-app="gestionnaireApp">
+<nav class="navbar navbar-inverse">
+	<ul class="nav nav-pills" role="tablist">
+		<li role="presentation"><a href="#/gestionnaire/listeCateg">Afficher les catégories</a></li>
+		<li role="presentation"><a href="#/gestionnaire/listeProd">Afficher les produits</a></li>
+		<li role="presentation"><a href="#/gestionnaire/ajoutCateg">Ajouter une catégorie</a></li>
+		<li role="presentation"><a href="#/gestionnaire/ajoutProd">Ajouter un produit</a></li>
+	</ul>
+</nav>
 
 	<div class="container">
 		<div ng-view></div>
 	</div>
-	
-<a href="accueilGestionnaire.html">Gestionnaire</a>
 
 </body>
 

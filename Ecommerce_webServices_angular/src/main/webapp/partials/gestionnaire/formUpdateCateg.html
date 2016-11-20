@@ -1,0 +1,17 @@
+<h1 align="center">Modifier une catégorie</h1>
+
+<form>
+	<div class="form-group">
+		<label for="nomCateg">Nom</label> <input id="nomCateg" type="text"
+			class="form-control" placeholder="Nom" ng-model="categForm.nom">
+	</div>
+	<div class="form-group">
+		<label for="descriptionCateg">Description</label>
+		<textarea rows="3" id="descriptionCateg" type="text"
+			class="form-control" placeholder="Description"
+			ng-model="categForm.description"></textarea>
+	</div>
+
+	<button class="btn btn-primary" ng-click="modifierCateg()">Modifier</button>
+	<button type="reset" class="btn btn-danger">Annuler</button>
+</form>

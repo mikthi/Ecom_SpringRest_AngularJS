@@ -1,0 +1,17 @@
+<h1 align="center">Ajouter une catégorie</h1>
+
+<form method="post">
+	<div class="form-group">
+		<label for="nomCateg">Nom</label> <input id="nomCateg" type="text"
+			class="form-control" placeholder="Nom" ng-model="categ.nom">
+	</div>
+	<div class="form-group">
+		<label for="descriptionCateg">Description</label>
+		<textarea rows="3" id="descriptionCateg" type="text"
+			class="form-control" placeholder="Description"
+			ng-model="categ.description"></textarea>
+	</div>
+
+	<button class="btn btn-primary" ng-click="ajouterCateg()">Ajouter</button>
+	<button type="reset" class="btn btn-danger">Annuler</button>
+</form>

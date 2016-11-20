@@ -1,0 +1,28 @@
+<div align="center">
+<h1>Liste des produit</h1>
+<br/>
+</div>
+
+<div class="table-responsive">
+<table class="table table-striped">
+	<tr>
+		<td style="font-weight: bold;" align="center">Id produit</td>
+		<td style="font-weight: bold;" align="center">Nom catégorie</td>
+		<td style="font-weight: bold;" align="center">Nom produit</td>
+		<td style="font-weight: bold;" align="center">Description produit</td>
+		<td class="col-md-2" style="font-weight: bold;" align="center">Edition</td>
+	</tr>
+	<tr ng-repeat="produit in allProduits">
+		<td align="center">{{produit.id_produit}}</td>
+		<td align="center">{{produit.categorie.nom}}</td>
+		<td align="center">{{produit.nom}}</td>
+		<td>{{produit.description}}</td>
+		<td align="center">
+				<button type="button" class="btn btn-warning"
+					ng-click="editLien(produit)">Modifier</button>
+				<button type="button" class="btn btn-warning"
+					ng-click="deleteLien(produit)">Supprimer</button>
+			</td>
+	</tr>
+</table>
+</div>

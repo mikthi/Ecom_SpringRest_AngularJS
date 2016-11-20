@@ -1,0 +1,21 @@
+<h1 align="center">Ajouter un produit</h1>
+
+<form method="post">
+	<div class="form-group">
+		<label for="nomProd">Nom</label> <input id="nomProd" type="text"
+			class="form-control" placeholder="Nom" ng-model="prod.nom">
+	</div>
+	<div class="form-group">
+		<label for="descriptionProd">Description</label>
+		<textarea rows="3" id="descriptionProd" type="text"
+			class="form-control" placeholder="Description"
+			ng-model="prod.description"></textarea>
+	</div>
+	<div class="form-group">
+		<label for="idCateg">ID catégorie</label> <input id="idCateg" type="number"
+			class="form-control" placeholder="ID catégorie" ng-model="prod.categorie.id_categorie">
+	</div>
+
+	<button class="btn btn-primary" ng-click="ajouterProd()">Ajouter</button>
+	<button type="reset" class="btn btn-danger">Annuler</button>
+</form>
