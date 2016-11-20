@@ -1,0 +1,15 @@
+<h1>Liste des produits</h1>
+
+
+<table class="table">
+	<tr>
+		<th>Id produit</th>
+		<th>Nom produit</th>
+		<th>Description produit</th>
+	</tr>
+	<tr ng-repeat="produit in allProduits">
+		<td>{{produit.id_produit}}</td>
+		<td>{{produit.nom}}</td>
+		<td>{{produit.description}}</td>
+	</tr>
+</table>

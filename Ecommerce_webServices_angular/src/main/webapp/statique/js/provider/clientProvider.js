@@ -5,7 +5,7 @@ monApp.factory('clientFactory',function($http){
 	{
 		$http({
 			method:'GET',
-			url:urlString+"/allProduits" 
+			url:urlString+"/getAllProduits" 
 			}).success(function(response){
 				console.log(response);
 				callback(response);
@@ -13,7 +13,22 @@ monApp.factory('clientFactory',function($http){
 				console.log("Erreur :" + response.statusText);
 			});
 	}
+	
+	function getAllCategories(callback)
+	{
+		$http({
+			method:'GET',
+			url:urlString+"/getAllCategories" 
+			}).success(function(response){
+				console.log(response);
+				callback(response);
+			}).error(function(response){
+				console.log("Erreur :" + response.statusText);
+			});
+	}
+	
 	return {
-		getAll : getAll
+		getAll : getAll,
+		getAllCategories : getAllCategories
 	}
 });

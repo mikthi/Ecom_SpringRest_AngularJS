@@ -1,4 +1,3 @@
-
 <h1>Liste des produits</h1>
 
 
@@ -9,7 +8,7 @@
 		<th>description du produit</th>
 	</tr>
 	<tr ng-repeat="produit in allProduits">
-		<!-- filtre par l'intermédiaire de "|"-->
+		<!-- filtre par l'intermï¿½diaire de "|"-->
 		<td>{{produit.id_produit}}</td>
 		<td>{{produit.nom}}</td>
 		<td>{{produit.description}}</td>
@@ -17,6 +16,6 @@
 </table>
 <form>
 
-	<button ng-controlleur="login" type="submit" ng-click="changeTypeUtilGest()">Menu client</button>
-	<button ng-controlleur="login" type="submit" ng-click="changeTypeUtilClient()">Menu gestionnaire</button>
+	<button ng-controlleur="login" type="submit" ng-click="changeTypeUtilGest()">Menu gestionnaire</button>
+	<button ng-controlleur="login" type="submit" ng-click="changeTypeUtilClient()">Menu client</button>
 </form>

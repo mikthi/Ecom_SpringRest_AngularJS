@@ -1,8 +1,15 @@
-monApp.controller('/login', function($scope, clientFactory) {
+monApp.controller('login', function($scope, clientFactory) {
 	
 	$scope.changeTypeUtil=function(){
-		typeUtilisateur.menu=1;
+	
+		$scope.typeUtilisateur=
+			{
+				"menu":2
+			};
+		console.log("typeUtilisateur apres modif" + $scope.typeUtilisateur.menu);
+	
 	};
+
 	clientFactory.getAll(function(callback) {
 		$scope.allProduits = callback;
 	});

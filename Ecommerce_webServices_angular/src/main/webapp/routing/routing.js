@@ -5,6 +5,16 @@ monApp.config(function($routeProvider) {
 	 controller:"getAllCtrl"
 		
 	})
+	.when('/gestionnaire/listeCateg', {
+		templateUrl : "partials/SPA.html",
+	 controller:"getAllCategoriesCtrl"
+		
+	})
+	.when('/gestionnaire/listeProd', {
+		templateUrl : "partials/corps/getAllProduits.html",
+	 controller:"getAllCtrl"
+		
+	})
 	.otherwise({
 		redirectTo : '/client/liste'
 	});

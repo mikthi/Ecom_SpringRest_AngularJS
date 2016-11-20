@@ -1,0 +1,15 @@
+<h1>Liste des catégories</h1>
+
+
+<table class="table">
+	<tr>
+		<th>Id catégorie</th>
+		<th>Nom catégorie</th>
+		<th>Description catégorie</th>
+	</tr>
+	<tr ng-repeat="categorie in allCategories">
+		<td>{{categorie.id_categorie}}</td>
+		<td>{{categorie.nom}}</td>
+		<td>{{categorie.description}}</td>
+	</tr>
+</table>
