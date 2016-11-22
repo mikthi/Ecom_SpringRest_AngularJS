@@ -9,6 +9,7 @@
 <link href="statique/bootstrap/bootstrap.css" rel="stylesheet"
 	type="text/css" />
 <script type="text/javascript" src="statique/bootstrap/bootstrap.js"></script>
+<script src="statique/bootstrap/bootstrap-hover-dropdown.min.js"></script>
 <script type="text/javascript" src="statique/angular/angular.js"></script>
 <script type="text/javascript" src="statique/angular/angular-route.js"></script>
 
@@ -26,14 +27,46 @@
 </head>
 
 <body ng-app="gestionnaireApp">
-<nav class="navbar navbar-inverse">
-	<ul class="nav nav-pills" role="tablist">
-		<li role="presentation"><a href="#/gestionnaire/listeCateg">Afficher les catégories</a></li>
-		<li role="presentation"><a href="#/gestionnaire/listeProd">Afficher les produits</a></li>
-		<li role="presentation"><a href="#/gestionnaire/ajoutCateg">Ajouter une catégorie</a></li>
-		<li role="presentation"><a href="#/gestionnaire/ajoutProd">Ajouter un produit</a></li>
-	</ul>
-</nav>
+
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#"><span
+					class="glyphicon glyphicon-home"></span></a>
+			</div>
+			<ul class="nav navbar-nav" ng-controller="getAllCategoriesCtrl">
+				<li class="dropdown"><a class="dropdown-toggle"
+					data-toggle="dropdown" data-hover="dropdown" data-delay="1000"
+					data-close-others="false" href="#/gestionnaire/listeCateg">Afficher
+						les catégories<span class="caret"></span>
+				</a>
+					<ul class="dropdown-menu">
+						<li ng-repeat="categorie in allCategories"><a
+							href="#/gestionnaire/listeProdByCateg"
+							ng-click="getProduitsByCateg(categorie)">{{categorie.nom}}</a></li>
+					</ul></li>
+				<li><a href="#/gestionnaire/listeProd">Afficher les
+						produits</a></li>
+				<li><a href="#/gestionnaire/ajoutCateg">Ajouter une
+						catégorie</a></li>
+				<li><a href="#/gestionnaire/ajoutProd">Ajouter un produit</a></li>
+			</ul>
+			<div ng-controller="getProduitsBySearchCtrl">
+				<form class="navbar-form navbar-left" role="search">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Mot-clef"
+							ng-model="mot_cle">
+					</div>
+					<button type="submit" class="btn btn-default"
+						ng-click="searchProduits()">Rechercher</button>
+				</form>
+			</div>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="index.html"><span
+						class="glyphicon glyphicon-log-out"></span> Déconnexion</a></li>
+			</ul>
+		</div>
+	</nav>
 
 	<div class="container">
 		<div ng-view></div>

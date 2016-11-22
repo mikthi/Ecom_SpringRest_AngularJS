@@ -1,5 +1,5 @@
 <div align="center">
-<h1>Liste des produits</h1>
+<h1>Résultat de votre recherche</h1>
 <br/>
 </div>
 
@@ -13,7 +13,7 @@
 		<td style="font-weight: bold;" align="center">Prix</td>
 		<td class="col-md-2" style="font-weight: bold;" align="center">Edition</td>
 	</tr>
-	<tr ng-repeat="produit in allProduits">
+	<tr ng-repeat="produit in searchProduits">
 		<td align="center">{{produit.id_produit}}</td>
 		<td align="center">{{produit.categorie.nom}}</td>
 		<td align="center">{{produit.nom}}</td>

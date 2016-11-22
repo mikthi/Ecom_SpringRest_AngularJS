@@ -5,6 +5,11 @@ gestionnaireApp.config(function($routeProvider) {
 	 controller:"getAllCategoriesCtrl"
 		
 	})
+	.when('/gestionnaire/listeCateg', {
+		templateUrl : "partials/gestionnaire/getAllCategories.html",
+	 controller:"getAllCategoriesCtrl"
+		
+	})
 	.when('/gestionnaire/listeProd', {
 		templateUrl : "partials/gestionnaire/getAllProduits.html",
 	 controller:"getAllProduitsCtrl"
@@ -28,6 +33,21 @@ gestionnaireApp.config(function($routeProvider) {
 	.when('/gestionnaire/prodUpdate', {
 		templateUrl : "partials/gestionnaire/formUpdateProd.html",
 	 controller:"getAllProduitsCtrl"
+		
+	})
+	.when('/gestionnaire/prodUpdate2', {
+		templateUrl : "partials/gestionnaire/formUpdateProd.html",
+	 controller:"getProduitsByCategCtrl"
+		
+	})
+	.when('/gestionnaire/listeProduitsSearch/', {
+		templateUrl : "partials/gestionnaire/getProduitsSearch.html",
+	 controller:"giveProduitsBySearchCtrl"
+		
+	})
+	.when('/gestionnaire/listeProdByCateg/', {
+		templateUrl : "partials/gestionnaire/getProduitsByCateg.html",
+	 controller:"getProduitsByCategCtrl"
 		
 	})
 	.otherwise({

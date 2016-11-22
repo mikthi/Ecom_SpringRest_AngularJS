@@ -27,6 +27,19 @@ gestionnaireApp.factory('gestionnaireFactory',function($http){
 			});
 	}
 	
+	function getProduitsBySearch(mot_cle, callback)
+	{
+		$http({
+			method:'GET',
+			url:urlString+"/ProduitsBySearch/" + mot_cle
+			}).success(function(response){
+				console.log(response);
+				callback(response);
+			}).error(function(response){
+				console.log("Erreur :" + response.statusText);
+			});
+	}
+	
 	function addCategorie(categ, callback) {
 		$http({
 			method : 'POST',
@@ -41,7 +54,7 @@ gestionnaireApp.factory('gestionnaireFactory',function($http){
 		})
 	}
 	
-	function addProduit(prod) {
+	function addProduit(prod, callback) {
 		$http({
 			method : 'POST',
 			url : urlString + '/addProduit',
@@ -49,6 +62,7 @@ gestionnaireApp.factory('gestionnaireFactory',function($http){
 			headers:{'Content-Type':'application/json'}
 		}).success(function(response) {
 			console.log(response);
+			callback(response);
 		}).error(function(response) {
 		console.log('Erreur' + response.statusText);
 		})
@@ -106,6 +120,19 @@ gestionnaireApp.factory('gestionnaireFactory',function($http){
 		})
 	}
 	
+	function getProduitsByIdCategorie(id_categ, callback)
+	{
+		$http({
+			method:'GET',
+			url:urlString+"/getAllProduitsByCategorie/" + id_categ
+			}).success(function(response){
+				console.log(response);
+				callback(response);
+			}).error(function(response){
+				console.log("Erreur :" + response.statusText);
+			});
+	}
+	
 	return {
 		getAllProduits : getAllProduits,
 		getAllCategories : getAllCategories,
@@ -114,6 +141,8 @@ gestionnaireApp.factory('gestionnaireFactory',function($http){
 		removeCategorie : removeCategorie,
 		updateCategorie : updateCategorie,
 		removeProduit : removeProduit,
-		updateProduit : updateProduit
+		updateProduit : updateProduit,
+		getProduitsBySearch : getProduitsBySearch,
+		getProduitsByIdCategorie : getProduitsByIdCategorie
 	}
 });

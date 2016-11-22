@@ -13,9 +13,12 @@
 			<td class="col-md-2" style="font-weight: bold;" align="center">Edition</td>
 		</tr>
 		<tr ng-repeat="categorie in allCategories">
-			<td align="center">{{categorie.id_categorie}}</td>
-			<td align="center">{{categorie.nom}}</td>
-			<td>{{categorie.description}}</td>
+			<td align="center"><a href="#/gestionnaire/listeProdByCateg"
+				ng-click="getProduitsByCateg(categorie)">{{categorie.id_categorie}}</a></td>
+			<td align="center"><a href="#/gestionnaire/listeProdByCateg"
+				ng-click="getProduitsByCateg(categorie)">{{categorie.nom}}</a></td>
+			<td><a href="#/gestionnaire/listeProdByCateg"
+				ng-click="getProduitsByCateg(categorie)">{{categorie.description}}</a></td>
 			<td align="center">
 				<button type="button" class="btn btn-warning"
 					ng-click="editLien(categorie)">Modifier</button>
