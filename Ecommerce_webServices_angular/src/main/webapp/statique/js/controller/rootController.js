@@ -8,9 +8,12 @@ monApp.controller('rootController', function($rootScope, $location, $route, $coo
 				"choixCategorie":0, //0: tous les produits, autres : id de la catégorie
 				"idClient":0
 		}
-	
 		$cookies=undefined;
-		$scope.navigationPanier=function(){		
+		
+		$scope.navigationPanier=function(){
+			
+		
+			
 			$scope.typeUtilisateur = {
 					"menu" : 12,
 					"corps" : 12

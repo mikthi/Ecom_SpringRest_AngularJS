@@ -162,7 +162,7 @@ public class Commande implements Serializable {
 	 */
 	@Override
 	public String toString() {
-		return "Commande [id_commande=" + id_commande + ", dateCommande=" + dateCommande + "]";
+		return "Commande [id_commande=" + id_commande + ", dateCommande=" + dateCommande +", client=" + client + "]";
 	}
 
 }

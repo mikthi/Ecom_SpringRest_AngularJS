@@ -13,6 +13,8 @@ monApp.factory('clientFactory',function($http){
 				console.log("Erreur :" + response.statusText);
 			});
 	}
+
+
 	function getAllCategories(callback)
 	{
 		$http({
@@ -115,7 +117,6 @@ monApp.factory('clientFactory',function($http){
 			});
 	}
 	
-	
 	function passerCommande(commande)
 	{
 		$http({
@@ -126,9 +127,23 @@ monApp.factory('clientFactory',function($http){
 				 'Content-Type':'application/json'
 			}
 		});
+
 	}
-	
+	function getAllCategories(callback)
+	{
+		$http({
+			method:'GET',
+			url:urlString+"/getAllCategories" 
+			}).success(function(response){
+				console.log(response);
+				callback(response);
+			}).error(function(response){
+				console.log("Erreur :" + response.statusText);
+			});
+
+	}
 	return {
+
 		getAllProduits : getAllProduits,
 		getAllCategories:getAllCategories,
 		getAllProduitsByCategorie:getAllProduitsByCategorie,
@@ -137,6 +152,8 @@ monApp.factory('clientFactory',function($http){
 		getProduitPanier:getProduitPanier,
 		clientIsExist:clientIsExist,
 		passerCommande:passerCommande,
-		enregistrerClient:enregistrerClient
+		enregistrerClient:enregistrerClient,
+		getAllCategories : getAllCategories
+
 	}
 });

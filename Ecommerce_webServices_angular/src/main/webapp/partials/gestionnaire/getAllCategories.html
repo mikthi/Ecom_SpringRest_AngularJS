@@ -1,0 +1,30 @@
+<div align="center">
+	<h1>Liste des catégories</h1>
+	<br />
+</div>
+
+<div class="table-responsive">
+	<table class="table table-striped">
+		<tr>
+			<td style="font-weight: bold;" align="center">Id catégorie</td>
+			<td style="font-weight: bold;" align="center">Nom catégorie</td>
+			<td style="font-weight: bold;" align="center">Description
+				catégorie</td>
+			<td class="col-md-2" style="font-weight: bold;" align="center">Edition</td>
+		</tr>
+		<tr ng-repeat="categorie in allCategories">
+			<td align="center"><a href="#/gestionnaire/listeProdByCateg"
+				ng-click="getProduitsByCateg(categorie)">{{categorie.id_categorie}}</a></td>
+			<td align="center"><a href="#/gestionnaire/listeProdByCateg"
+				ng-click="getProduitsByCateg(categorie)">{{categorie.nom}}</a></td>
+			<td><a href="#/gestionnaire/listeProdByCateg"
+				ng-click="getProduitsByCateg(categorie)">{{categorie.description}}</a></td>
+			<td align="center">
+				<button type="button" class="btn btn-warning"
+					ng-click="editLien(categorie)">Modifier</button>
+				<button type="button" class="btn btn-warning"
+					ng-click="deleteLien(categorie)">Supprimer</button>
+			</td>
+		</tr>
+	</table>
+</div>

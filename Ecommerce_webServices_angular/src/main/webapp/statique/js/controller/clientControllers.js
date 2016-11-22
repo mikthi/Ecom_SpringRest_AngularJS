@@ -2,7 +2,7 @@ monApp.controller('AccueilCtrl', function($scope, $route, $rootScope,
 		$location, $cookies, clientFactory) {
 
 	$scope.selectionFiltreCategorie = function(id) {
-		$rootScope.navigationClient.choixCategorie = id; // 0: tous les
+		$scope.navigationClient.choixCategorie = id; // 0: tous les
 
 	}
 	function actualiserAccueilClient() {
@@ -36,7 +36,7 @@ monApp.controller('AccueilCtrl', function($scope, $route, $rootScope,
 
 monApp.controller('consulterProduitCtrl', function($scope, $rootScope,
 		$location, $route, $cookies, clientFactory) {
-
+	
 	$scope.ajouterProduitAuPanier = function(id, quantite) {
 		$cookies.put(id, quantite);
 		$scope.navigationAccueil();
@@ -89,35 +89,39 @@ monApp.controller('espaceClientCtrl', function($scope, $rootScope, $location,
 	};
 
 	$scope.enregistrerClientCommande = function() {
-		var commande = {
-			id_commande : "",
-			dateCommande : new Date(),
-			client : $scope.clientAEnregistrer,
-			produitCommande : $cookies.getAll()
-		};
-		clientFactory.enregistrerClient($scope.clientAEnregistrer, function(
-				callback) {
-			commande.client = callback;
-
+		console.log($scope.clientAEnregistrer);
+		var clientEntre=$scope.clientAEnregistrer;
+		clientFactory.enregistrerClient(clientEntre, function(callback) {
+			$scope.idClient = callback;
 		});
-
-		clientFactory.passerCommande(commande);
+		$scope.commande = {
+			"id_commande" : "",
+			"dateCommande" : new Date(),
+			"client" :clientEntre,
+			"produitCommande" : $cookies.getAll()
+		};
+		console.log("objet commande : " + $scope.commande);
+		clientFactory.passerCommande($scope.commande);
 		$cookies = undefined;
+		$scope.navigationAccueil();
+		$scope.clientAEnregistrer = {
+				id_client : "",
+				nom : "",
+				prenom : "",
+				mail : "",
+				telephone : "",
+				voie : "",
+				ville : "",
+				codePostal : ""
+			};
 	}
 	$scope.enregistrerCommande = function() {
-		//console.log("avan is"+$scope.clientATrouver)
+		
 		clientFactory.clientIsExist($scope.clientATrouver, function(callback) {
 			$scope.clientATrouver = callback;
 		});
 
-		clientFactory.getProduitPanier($cookies.getAll(), function(callback) {
-			$scope.listeProduitPanier = callback;
-		});
-
-		console.log($scope.clientATrouver)
-
 		var commande = {
-			id_commande : "",
 			dateCommande : new Date(),
 			client : $scope.clientATrouver,
 			produitCommande : $cookies.getAll()
@@ -128,10 +132,9 @@ monApp.controller('espaceClientCtrl', function($scope, $rootScope, $location,
 			$scope.navigationAccueil();
 		}
 		else
-			{
+		{
 			$scope.message="Veuillez vous inscrire ou entrer correctement vos coordonées";
-			}
-
+		}
 		$scope.clientATrouver = {
 			id_client : "",
 			nom : "",
