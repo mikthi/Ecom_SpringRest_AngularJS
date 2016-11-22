@@ -1,22 +1,24 @@
-
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
 <h1>Liste des produits</h1>
 
 
 <table class="table">
 	<tr>
-		<th>Id du produit</th>
+
 		<th>Nom du produit</th>
 		<th>description du produit</th>
+		<th>prix unitaire</th>
+		<th>consulter</th>
 	</tr>
 	<tr ng-repeat="produit in allProduits">
-		<!-- filtre par l'interm�diaire de "|"-->
-		<td>{{produit.id_produit}}</td>
+		<!-- filtre par l'intermédiaire de "|"-->
+
 		<td>{{produit.nom}}</td>
 		<td>{{produit.description}}</td>
+		<td>{{produit.prix |number:2 |currency:'€'}}</td>
+		<td><button type="button"
+				ng-click="consulterProduit(produit.id_produit)">Consulter</button></td>
 	</tr>
 </table>
-<form>
-
-	<button ng-controlleur="login" type="submit" ng-click="changeTypeUtilGest()">Menu client</button>
-	<button ng-controlleur="login" type="submit" ng-click="changeTypeUtilClient()">Menu gestionnaire</button>
-</form>

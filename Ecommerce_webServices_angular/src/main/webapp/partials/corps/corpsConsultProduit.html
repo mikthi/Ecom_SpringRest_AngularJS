@@ -1,0 +1,22 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<h1>Produit sélectionné</h1>
+
+
+<table class="table">
+	<tr>
+		<th>nom</th>
+		<th>description</th>
+		<th>prix unitaire</th>
+		<th>quantité à commander</th>
+	</tr>
+	<tr>
+		<!-- filtre par l'intermédiaire de "|"-->
+		<td>{{consulterProduit.nom}}</td>
+		<td>{{consulterProduit.description}}</td>
+		<td>{{consulterProduit.prix  |number:2 |currency:'€'}}</td>
+		<td><input type ="number" name="quantite" ng-model="quantite" > <button type="button" ng-click="ajouterProduitAuPanier(consulterProduit.id_produit,quantite)">Ajouter au panier</button></td>
+	</tr>
+</table>

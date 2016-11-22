@@ -42,7 +42,7 @@ public class Commande implements Serializable {
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_client", referencedColumnName = "id_client")
-	ClientEcom client;
+	Client client;
 	
 	@ElementCollection(fetch = FetchType.EAGER)
 	private Map<Integer,Integer> produitCommande;
@@ -52,7 +52,7 @@ public class Commande implements Serializable {
 	 */
 	public Commande() {
 		super();
-		client= new ClientEcom();
+		client= new Client();
 		dateCommande= new Date();
 		
 
@@ -62,7 +62,7 @@ public class Commande implements Serializable {
 	 * @param dateCommande
 	 * @param client
 	 */
-	public Commande(Date dateCommande, ClientEcom client) {
+	public Commande(Date dateCommande, Client client) {
 		super();
 		this.dateCommande = dateCommande;
 		this.client = client;
@@ -112,14 +112,14 @@ public class Commande implements Serializable {
 	/**
 	 * @return the client
 	 */
-	public ClientEcom getClient() {
+	public Client getClient() {
 		return client;
 	}
 
 	/**
 	 * @param client the client to set
 	 */
-	public void setClient(ClientEcom client) {
+	public void setClient(Client client) {
 		this.client = client;
 	}
 

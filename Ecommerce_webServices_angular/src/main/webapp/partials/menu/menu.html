@@ -1,13 +1,24 @@
 <!-- Menu -->
-	<div >
-		<div>
-			<div ng-switch on="typeUtilisateur.menu">
-				<div ng-switch-when="1">
-					<div ng-include="'partials/menu/menuClient.html'"></div>
+<div>
+	<div>
+		<div ng-switch="typeUtilisateur.menu">
+			<div ng-switch-when="10">
+				<div ng-include="'partials/menu/menuClient.html'"></div>
+			</div>
+			<div ng-switch-when="11">
+				<div ng-include="'partials/menu/menuConsultProduit.html'"></div>
+			</div>
+			
+				<div ng-switch-when="12">
+					<div ng-include="'partials/menu/menuPanier.html'"></div>
 				</div>
-				<div ng-switch-when="2">
-					<div ng-include="'partials/menu/menuGestionnaire.html'"></div>
+				<div ng-switch-when="13">
+					<div ng-include="'partials/menu/menuCommande.html'"></div>
 				</div>
+			
+			<div ng-switch-when="2">
+				<div ng-include="'partials/menu/menuGestionnaire.html'"></div>
 			</div>
 		</div>
 	</div>
+</div>

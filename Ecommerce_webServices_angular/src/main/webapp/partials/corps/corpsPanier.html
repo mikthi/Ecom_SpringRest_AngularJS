@@ -1,0 +1,28 @@
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<h1>Contenu du panier</h1>
+
+<table class="table">
+	<tr>
+		<th align="center">nom</th>
+		<th>description</th>
+		<th align="center">quantité commandée</th>
+		<th align="center">prix unitaire</th>
+		<th>supprimer produit</th>
+	</tr>
+	<tr ng-repeat="produit in listeProduitPanier">
+		<!-- filtre par l'intermédiaire de "|"-->
+		<td align="center">{{produit.nom}}</td>
+		<td >{{produit.description}}</td>
+		<td align="center">{{getQuantite(produit.id_produit)}}</td>
+		<td align="center">{{produit.prix  |number:2 |currency:'€'}}</td>
+		<td><input type ="button" ng-click="supprimerProduitPanier(produit.id_produit)" value ="supprimer produit"> </td>
+	</tr>
+	<tr>
+	<td>le montant de la commmande est de :</td>
+	<td align="right"><strong>{{montantTotal |number:2 |currency:'€'}}</strong></td>
+	<td><input type=button value="Commander" ng-click="navigationFacture()"></input></td>
+	</tr>
+</table>

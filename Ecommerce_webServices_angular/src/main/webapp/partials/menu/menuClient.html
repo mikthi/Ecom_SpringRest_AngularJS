@@ -1,5 +1,20 @@
-	<nav class="navbar navbar-inverse">
-		<ul class="nav nav-pills" role="tablist">
-			<li role="presentation"><a href="#/client/liste">Liste des produits</a></li>
-		</ul>
-	</nav>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<nav class="navbar navbar-inverse navbar-top " >
+  <div class="container-fluid " >
+    <ul class="nav navbar-nav ">
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        filtrer par catégorie de produit<span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+        <li><a ng-click="selectionFiltreCategorie(0)" href="#" type="button">Tous les produits</a></li>
+        	<li ng-repeat="categorie in allCategories"><a ng-click="selectionFiltreCategorie(categorie.id_categorie)" href="#" type="button">{{categorie.nom}}</a></li>
+        </ul>
+      </li>
+      <li ><a  ng-click="navigationPanier()" href="">Panier</a></li> 
+ <li ><a ng-click="" href="">Facture</a></li> 
+    </ul>
+  </div>
+</nav>
