@@ -1,57 +1,149 @@
 gestionnaireApp.config(function($routeProvider) {
-	$routeProvider
-	.when('/gestionnaire/listeCateg', {
+	$routeProvider.when('/gestionnaire/listeCateg', {
 		templateUrl : "partials/gestionnaire/getAllCategories.html",
-	 controller:"getAllCategoriesCtrl"
-		
-	})
-	.when('/gestionnaire/listeCateg', {
+		controller : "getAllCategoriesCtrl"
+
+	}).when('/gestionnaire/listeCateg', {
 		templateUrl : "partials/gestionnaire/getAllCategories.html",
-	 controller:"getAllCategoriesCtrl"
-		
-	})
-	.when('/gestionnaire/listeProd', {
+		controller : "getAllCategoriesCtrl",
+		resolve : {
+			"check" : function(gestionnaireFactory, $location) {
+
+				if (gestionnaireFactory.checkPermission()) {
+				} else {
+					$location.path('gestionnaire/login');
+				}
+			}
+		}
+
+	}).when('/gestionnaire/listeProd', {
 		templateUrl : "partials/gestionnaire/getAllProduits.html",
-	 controller:"getAllProduitsCtrl"
-		
-	})
-	.when('/gestionnaire/ajoutCateg', {
+		controller : "getAllProduitsCtrl",
+			resolve : {
+				"check" : function(gestionnaireFactory, $location) {
+
+					if (gestionnaireFactory.checkPermission()) {
+					} else {
+						$location.path('gestionnaire/login');
+					}
+				}
+			}
+
+	}).when('/gestionnaire/ajoutCateg', {
 		templateUrl : "partials/gestionnaire/formAjoutCateg.html",
-	 controller:"addCategorieCtrl"
-		
-	})
-	.when('/gestionnaire/ajoutProd', {
+		controller : "addCategorieCtrl",
+		resolve : {
+			"check" : function(gestionnaireFactory, $location) {
+
+				if (gestionnaireFactory.checkPermission()) {
+				} else {
+					$location.path('gestionnaire/login');
+				}
+			}
+		}
+
+	}).when('/gestionnaire/ajoutProd', {
 		templateUrl : "partials/gestionnaire/formAjoutProd.html",
-	 controller:"addProduitCtrl"
-		
-	})
-	.when('/gestionnaire/categUpdate', {
+		controller : "addProduitCtrl",
+		resolve : {
+			"check" : function(gestionnaireFactory, $location) {
+
+				if (gestionnaireFactory.checkPermission()) {
+				} else {
+					$location.path('gestionnaire/login');
+				}
+			}
+		}
+
+	}).when('/gestionnaire/categUpdate', {
 		templateUrl : "partials/gestionnaire/formUpdateCateg.html",
-	 controller:"getAllCategoriesCtrl"
-		
-	})
-	.when('/gestionnaire/prodUpdate', {
+		controller : "getAllCategoriesCtrl",
+		resolve : {
+			"check" : function(gestionnaireFactory, $location) {
+
+				if (gestionnaireFactory.checkPermission()) {
+				} else {
+					$location.path('gestionnaire/login');
+				}
+			}
+		}
+
+	}).when('/gestionnaire/prodUpdate', {
 		templateUrl : "partials/gestionnaire/formUpdateProd.html",
-	 controller:"getAllProduitsCtrl"
-		
-	})
-	.when('/gestionnaire/prodUpdate2', {
+		controller : "getAllProduitsCtrl",
+		resolve : {
+			"check" : function(gestionnaireFactory, $location) {
+
+				if (gestionnaireFactory.checkPermission()) {
+				} else {
+					$location.path('gestionnaire/login');
+				}
+			}
+		}
+
+	}).when('/gestionnaire/prodUpdate2', {
 		templateUrl : "partials/gestionnaire/formUpdateProd.html",
-	 controller:"getProduitsByCategCtrl"
-		
-	})
-	.when('/gestionnaire/listeProduitsSearch/', {
+		controller : "getProduitsByCategCtrl",
+		resolve : {
+			"check" : function(gestionnaireFactory, $location) {
+
+				if (gestionnaireFactory.checkPermission()) {
+				} else {
+					$location.path('gestionnaire/login');
+				}
+			}
+		}
+
+	}).when('/gestionnaire/listeProduitsSearch/', {
 		templateUrl : "partials/gestionnaire/getProduitsSearch.html",
-	 controller:"giveProduitsBySearchCtrl"
-		
-	})
-	.when('/gestionnaire/listeProdByCateg/', {
+		controller : "giveProduitsBySearchCtrl",
+		resolve : {
+			"check" : function(gestionnaireFactory, $location) {
+
+				if (gestionnaireFactory.checkPermission()) {
+				} else {
+					$location.path('gestionnaire/login');
+				}
+			}
+		}
+
+	}).when('/gestionnaire/listeProdByCateg/', {
 		templateUrl : "partials/gestionnaire/getProduitsByCateg.html",
-	 controller:"getProduitsByCategCtrl"
-		
-	})
-	.otherwise({
-		redirectTo : "gestionnaire/listeCateg"
+		controller : "getProduitsByCategCtrl",
+		resolve : {
+			"check" : function(gestionnaireFactory, $location) {
+
+				if (gestionnaireFactory.checkPermission()) {
+				} else {
+					$location.path('gestionnaire/login');
+				}
+			}
+		}
+
+	}).when('/gestionnaire/login', {
+		templateUrl : "partials/gestionnaire/login.html",
+		controller : "securityCtrl",
+		resolve : {
+			"check" : function(gestionnaireFactory, $location) {
+
+				if (gestionnaireFactory.checkPermission()) {
+				} else {
+					$location.path('gestionnaire/login');
+				}
+			}
+		}
+
+	}).otherwise({
+		resolve : {
+			"check" : function(gestionnaireFactory, $location) {
+
+				if (gestionnaireFactory.checkPermission()) {
+					$location.path('gestionnaire/listeCateg');
+				} else {
+					$location.path('gestionnaire/login');
+//					alert("You don't have access here");
+				}
+			}
+		}
 	});
 });
-

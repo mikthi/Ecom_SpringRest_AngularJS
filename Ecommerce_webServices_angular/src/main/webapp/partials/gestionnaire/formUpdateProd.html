@@ -13,7 +13,7 @@
 	</div>
 	<div class="form-group">
 		<label for="prixProduit">Prix</label> <input id="prixProduit"
-			type="text" class="form-control" placeholder="Prix"
+			type="number" step="any" class="form-control" placeholder="Prix"
 			ng-model="prodForm.prix">
 	</div>
 	<!-- 	<div class="form-group"> -->
@@ -22,7 +22,7 @@
 	<!-- 	</div> -->
 	<div class="form-group">
 		<label for="idCateg">Catégorie</label> <select
-			ng-model="prodForm.categorie.id_categorie">
+			ng-model="prodForm.categorie.id_categorie" class="form-control">
 			<option ng-repeat="categ in allCategories"
 				value="{{categ.id_categorie}}">{{categ.nom}}</option>
 		</select>

@@ -109,6 +109,7 @@ gestionnaireApp.controller('getProduitsBySearchCtrl', function($rootScope,
 		gestionnaireFactory.getProduitsBySearch($scope.mot_cle, function(
 				callback) {
 			$rootScope.searchProduits = callback;
+			console.log(callback);
 			$location.path('gestionnaire/listeProduitsSearch');
 		});
 	}
@@ -117,6 +118,13 @@ gestionnaireApp.controller('getProduitsBySearchCtrl', function($rootScope,
 gestionnaireApp.controller('giveProduitsBySearchCtrl', function($rootScope,
 		$scope, gestionnaireFactory, $location) {
 	$scope.searchProduits = $rootScope.searchProduits
+	if ($scope.searchProduits.length < 1) {
+		$scope.searchShow = false;
+		$scope.message = "Désolé, votre recherche n'a donné aucun résultat."
+	} else {
+		$scope.searchShow = true;
+		$scope.message = "Résultat de votre recherche"
+	}
 });
 
 gestionnaireApp.controller('getProduitsByCategCtrl', function($rootScope,
@@ -155,4 +163,15 @@ gestionnaireApp.controller('getProduitsByCategCtrl', function($rootScope,
 		})
 	}
 
+});
+
+gestionnaireApp.controller('securityCtrl', function($scope, gestionnaireFactory, $location) {
+	
+	$scope.getAccess = function() {
+		var login = $scope.login;
+		var password = $scope.password;
+		
+		gestionnaireFactory.getPermission(login, password); //call the method in acccessFac to allow the user permission.
+		$location.path('gestionnaire/listeCateg');
+	}
 });
