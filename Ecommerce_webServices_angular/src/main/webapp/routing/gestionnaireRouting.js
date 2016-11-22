@@ -94,6 +94,20 @@ gestionnaireApp.config(function($routeProvider) {
 			}
 		}
 
+	})
+	.when('/gestionnaire/prodUpdate3', {
+		templateUrl : "partials/gestionnaire/formUpdateProd.html",
+		controller : "giveProduitsBySearchCtrl",
+		resolve : {
+			"check" : function(gestionnaireFactory, $location) {
+
+				if (gestionnaireFactory.checkPermission()) {
+				} else {
+					$location.path('gestionnaire/login');
+				}
+			}
+		}
+
 	}).when('/gestionnaire/listeProduitsSearch/', {
 		templateUrl : "partials/gestionnaire/getProduitsSearch.html",
 		controller : "giveProduitsBySearchCtrl",
