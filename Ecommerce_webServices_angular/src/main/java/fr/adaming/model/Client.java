@@ -35,7 +35,7 @@ public class Client extends Personne{
 	private String voie;
 	private String ville;
 	private int codePostal;
-	@OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "client", fetch = FetchType.EAGER)
 	private List<Commande> listeCommande=new ArrayList<Commande>();
 
 	/**

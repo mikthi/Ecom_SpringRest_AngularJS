@@ -1,3 +1,5 @@
+
+
 monApp.controller('AccueilCtrl', function($scope, $route, $rootScope,
 		$location, $cookies, clientFactory) {
 
@@ -31,9 +33,8 @@ monApp.controller('AccueilCtrl', function($scope, $route, $rootScope,
 		$scope.navigationProduitDetailles();
 	}
 	// à chaque appel du controller
-	actualiserAccueilClient();
+	actualiserAccueilClient(); 
 });
-
 monApp.controller('consulterProduitCtrl', function($scope, $rootScope,
 		$location, $route, $cookies, clientFactory) {
 	
@@ -90,44 +91,32 @@ monApp.controller('espaceClientCtrl', function($scope, $rootScope, $location,
 
 	$scope.enregistrerClientCommande = function() {
 		console.log($scope.clientAEnregistrer);
-		var clientEntre=$scope.clientAEnregistrer;
-		clientFactory.enregistrerClient(clientEntre, function(callback) {
-			$scope.idClient = callback;
-		});
+		$scope.clientAEnregistrer;
 		$scope.commande = {
 			"id_commande" : "",
 			"dateCommande" : new Date(),
-			"client" :clientEntre,
+			"client" : $scope.clientAEnregistrer,
 			"produitCommande" : $cookies.getAll()
 		};
-		console.log("objet commande : " + $scope.commande);
+		console.log("objet commande : " + $scope.commande.client.nom);
 		clientFactory.passerCommande($scope.commande);
 		$cookies = undefined;
 		$scope.navigationAccueil();
-		$scope.clientAEnregistrer = {
-				id_client : "",
-				nom : "",
-				prenom : "",
-				mail : "",
-				telephone : "",
-				voie : "",
-				ville : "",
-				codePostal : ""
-			};
 	}
 	$scope.enregistrerCommande = function() {
 		
 		clientFactory.clientIsExist($scope.clientATrouver, function(callback) {
 			$scope.clientATrouver = callback;
 		});
-
-		var commande = {
-			dateCommande : new Date(),
-			client : $scope.clientATrouver,
-			produitCommande : $cookies.getAll()
-		}
+		
+		$scope.commande = {
+				"id_commande" : "",
+				"dateCommande" : new Date(),
+				"client" : $scope.clientATrouver,
+				"produitCommande" : $cookies.getAll()
+			};
 		if ($scope.clientATrouver.id_client != "") {
-			clientFactory.passerCommande(commande);
+			clientFactory.passerCommande($scope.commande);
 			$cookies = null;
 			$scope.navigationAccueil();
 		}
